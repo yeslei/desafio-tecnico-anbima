@@ -18,14 +18,23 @@ public class PedidoController {
     }
 
     @PostMapping(value = "/posicional", consumes = "text/plain")
-    public ResponseEntity<Pedido> receberPedidoPosicional(@RequestBody String linhaPosicional) {
+    public ResponseEntity<?> receberPedidoPosicional(@RequestBody String linhaPosicional) {
         
-        if (linhaPosicional == null || linhaPosicional.length() != 40) {
-            return ResponseEntity.badRequest().build();
+        if (linhaPosicional == null || linhaPosicional.length() > 40) {
+            return ResponseEntity.badRequest().body("Erro: A linha não pode ter mais que 40 caracteres.");
         }
 
-        Pedido pedidoSalvo = pedidoService.processarEGravarPedido(linhaPosicional);
-        
-        return new ResponseEntity<>(pedidoSalvo, HttpStatus.CREATED);
+        // Regra: Se vier com menos de 40, preenchemos com espaços à direita
+        // Isso evita o erro de IndexOutOfBounds ao fazer o substring no Service
+        if (linhaPosicional.length() < 40) {
+            linhaPosicional = String.format("%-40s", linhaPosicional);
+        }
+
+        try {
+            Pedido pedidoSalvo = pedidoService.processarEGravarPedido(linhaPosicional);
+            return new ResponseEntity<>(pedidoSalvo, HttpStatus.CREATED);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body("Erro de validação: " + e.getMessage());
+        }
     }
 }
