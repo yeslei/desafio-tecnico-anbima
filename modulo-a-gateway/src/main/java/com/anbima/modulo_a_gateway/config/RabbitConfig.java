@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitConfig {
 
-    public static final String FILA_PEDIDO_CRIADO = "pedidos.v1.pedido-criado";
+    public static final String FILA_PEDIDO_CRIADO = "pedidos.recebidos";
 
     @Bean
     public Queue queue() {

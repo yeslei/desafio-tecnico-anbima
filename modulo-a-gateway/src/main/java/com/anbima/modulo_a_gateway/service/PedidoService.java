@@ -25,11 +25,6 @@ public class PedidoService {
         String bebida = linhaPosicional.substring(32, 40).trim();
         
         String qtdStr = linhaPosicional.substring(30, 32).trim();
-
-        validarCampoSemNumeros(tipo, "Tipo de Lanche");
-        validarCampoSemNumeros(proteina, "Proteína");
-        validarCampoSemNumeros(acompanhamento, "Acompanhamento");
-        validarCampoSemNumeros(bebida, "Bebida");
         
         if (qtdStr.length() == 1) {
             qtdStr = "0" + qtdStr;
@@ -83,11 +78,4 @@ public class PedidoService {
         rabbitService.enviarMensagemPedidoCriado(pedidoSalvo.getId());
         return pedidoSalvo;
     }
-
-    private void validarCampoSemNumeros(String valor, String nomeCampo) {
-    // A Regex ".*\\d.*" verifica se existe QUALQUER dígito na string
-    if (valor != null && valor.matches(".*\\d.*")) {
-        throw new IllegalArgumentException("O campo " + nomeCampo + " não pode conter números: " + valor);
-    }
-}
 }
