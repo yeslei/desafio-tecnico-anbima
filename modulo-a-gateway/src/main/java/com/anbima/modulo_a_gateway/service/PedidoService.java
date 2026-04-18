@@ -1,9 +1,7 @@
 package com.anbima.modulo_a_gateway.service;
 
-import com.anbima.modulo_a_gateway.config.RabbitConfig;
 import com.anbima.modulo_a_gateway.model.Pedido;
 import com.anbima.modulo_a_gateway.repository.PedidoRepository;
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -12,11 +10,11 @@ import java.math.RoundingMode;
 public class PedidoService {
 
     private final PedidoRepository repository;
-    private final RabbitTemplate rabbitTemplate;
+    private final RabbitService rabbitService;
 
-    public PedidoService(PedidoRepository repository, RabbitTemplate rabbitTemplate) {
+    public PedidoService(PedidoRepository repository, RabbitService rabbitService) {
         this.repository = repository;
-        this.rabbitTemplate = rabbitTemplate;
+        this.rabbitService = rabbitService;
     }
 
     public Pedido processarEGravarPedido(String linhaPosicional) {
@@ -82,14 +80,7 @@ public class PedidoService {
 
         Pedido pedidoSalvo = repository.save(p);
 
-        try {
-            String jsonMensagem = String.format("{\"pedidoId\": %d}", pedidoSalvo.getId());
-            rabbitTemplate.convertAndSend(RabbitConfig.FILA_PEDIDO_CRIADO, jsonMensagem);
-            System.out.println("ID enviado para o RabbitMQ: " + pedidoSalvo.getId());
-        } catch (Exception e) {
-            System.err.println("Erro ao enviar mensagem: " + e.getMessage());
-        }
-        
+        rabbitService.enviarMensagemPedidoCriado(pedidoSalvo.getId());
         return pedidoSalvo;
     }
 
