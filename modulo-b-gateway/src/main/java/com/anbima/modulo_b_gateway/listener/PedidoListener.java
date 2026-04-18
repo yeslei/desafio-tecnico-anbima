@@ -10,11 +10,11 @@ import org.springframework.stereotype.Component;
 public class PedidoListener {
 
     private final PedidoRepository repository;
-    private final ObjectMapper objectMapper;
+    
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
-    public PedidoListener(PedidoRepository repository, ObjectMapper objectMapper) {
+    public PedidoListener(PedidoRepository repository) {
         this.repository = repository;
-        this.objectMapper = objectMapper;
     }
 
     @RabbitListener(queues = "pedidos.recebidos")
