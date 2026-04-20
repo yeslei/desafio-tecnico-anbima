@@ -1,0 +1,49 @@
+<div class="card">
+  <div class="header-lista">
+    <h2>Pedidos no Sistema</h2>
+    <div class="controles">
+      <select [(ngModel)]="filtroStatus">
+        <option value="">Todos os Status</option>
+        <option value="RECEBIDO">RECEBIDO</option>
+        <option value="ENTREGUE">ENTREGUE</option>
+      </select>
+      <button class="btn-refresh" (click)="carregarPedidos()">Atualizar</button>
+    </div>
+  </div>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Lanche</th>
+          <th>Proteína</th>
+          <th>Acompanhamento</th>
+          <th>Quantidade</th>
+          <th>Bebida</th>
+          <th>Valor</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of pedidosFiltrados">
+          <td>#{{ p.id }}</td>
+          <td>{{ p.tipoLanche }}</td>
+          <td>{{ p.proteina }}</td>
+          <td>{{ p.acompanhamento }}</td>
+          <td>{{ p.quantidade }}</td>
+          <td>{{ p.bebida }}</td>
+          <td>R$ {{ p.valor | number:'1.2-2' }}</td>
+          <td>
+            <span class="status-badge" [ngClass]="p.status">
+              {{ p.status }}
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="pedidosFiltrados.length === 0" class="empty">
+      Nenhum pedido encontrado.
+    </div>
+  </div>
+</div>

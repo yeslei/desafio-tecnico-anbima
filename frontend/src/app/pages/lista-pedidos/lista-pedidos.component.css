@@ -1,0 +1,72 @@
+.header-lista { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 1.25rem;
+}
+
+.controles { 
+    display: flex; 
+    gap: 0.625rem;
+}
+
+select { 
+    padding: 0.5rem;
+    border-radius: 0.3125rem;
+    border: 0.0625rem solid #ccc;
+}
+
+.btn-refresh { 
+    background: #17a2b8; 
+    color: white; 
+    border: none; 
+    padding: 0.5rem 0.9375rem; 
+    border-radius: 0.3125rem;
+    cursor: pointer; 
+}
+
+.table-container { 
+    overflow-x: auto; 
+    background: white; 
+    border-radius: 0.5rem;
+}
+
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-top: 0.625rem;
+}
+
+th, td {
+    padding: 0.75rem;
+    border-bottom: 0.0625rem solid #eee;
+    text-align: left; 
+}
+
+th { 
+    background-color: #f8f9fa; 
+    color: #333; 
+}
+
+.status-badge { 
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.75rem;
+    font-size: 0.6875rem;
+    font-weight: bold; 
+}
+
+.status-badge.RECEBIDO { 
+    background: #fff3cd; 
+    color: #856404; 
+}
+
+.status-badge.ENTREGUE { 
+    background: #d4edda; 
+    color: #155724; 
+}
+
+.empty { 
+    padding: 1.25rem;
+    text-align: center; 
+    color: #999;
+}
