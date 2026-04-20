@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, firstValueFrom } from 'rxjs';
 import { Pedido } from '../models/pedido';
 import { environment } from '../../../environments/environment'; 
 //prd
@@ -26,9 +26,9 @@ export class PedidoService {
 
   // 3. Acorda os servidores no Render
   acordarApis(): Promise<any> {
-    return Promise.allSettled([
-      this.http.get(environment.moduloAUrl).toPromise(),
-      this.http.get(environment.moduloBUrl).toPromise()
-    ]);
-  }
+      return Promise.allSettled([
+        firstValueFrom(this.http.get(environment.moduloAUrl)),
+        firstValueFrom(this.http.get(environment.moduloBUrl))
+      ]);
+    }
 }
