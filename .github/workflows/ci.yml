@@ -69,4 +69,4 @@ jobs:
         run: npm install
 
       - name: Checar Build (Angular)
-        run: ng serve
+        run: npm run build
