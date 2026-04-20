@@ -9,7 +9,7 @@ O sistema foi desenhado seguindo uma **arquitetura distribuída de microsserviç
 
 ## 1. Visão Geral da Solução
 
-A aplicação simula um sistema real de pedidos de fast food, onde uma string posicional representa um pedido completo.  
+A aplicação simula um sistema de pedidos de fast food, onde uma string posicional representa um pedido completo.  
 Essa string é processada, validada, persistida e posteriormente entregue de forma assíncrona.
 
 O fluxo foi dividido em dois módulos principais:
@@ -25,7 +25,7 @@ O sistema está hospedado em ambiente cloud (PaaS/DBaaS), simulando um cenário 
 
 -  **Frontend (Vercel):** `https://desafio-tecnico-anbima-ewsg6nmyh-yesleis-projects.vercel.app/pedidos`
 - **Módulo A - Gateway (Render):** `https://desafio-tecnico-anbima-1.onrender.com`
-- **Módulo B - Processor (Render):** `https://desafio-tecnico-anbima-1.onrender.com`
+- **Módulo B - Processor (Render):** `https://desafio-tecnico-anbima-2.onrender.com`
 
 > **Observação importante (Free Tier):** > Os serviços no Render podem entrar em estado de "sleep" por inatividade.  
 > Ao acessar o sistema, utilize o botão **"Ligar Sistema"** e aguarde cerca de **2 minutos** para a inicialização completa dos serviços.
