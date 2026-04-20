@@ -23,7 +23,7 @@ O fluxo foi dividido em dois módulos principais:
 
 O sistema está hospedado em ambiente cloud (PaaS/DBaaS), simulando um cenário real de produção.
 
--  **Frontend (Vercel):** `https://desafio-tecnico-anbima-ewsg6nmyh-yesleis-projects.vercel.app/pedidos`
+-  **Frontend (Vercel):** `https://desafio-tecnico-anbima.vercel.app/pedidos`
 - **Módulo A - Gateway (Render):** `https://desafio-tecnico-anbima-1.onrender.com`
 - **Módulo B - Processor (Render):** `https://desafio-tecnico-anbima-2.onrender.com`
 
