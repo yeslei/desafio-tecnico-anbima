@@ -3,7 +3,7 @@
   <div *ngIf="!apiPronta" class="launch-screen">
     <div class="card-launch">
       <h1>Teste Técnico ANBIMA</h1>
-      <p>Nossos servidores no Render podem levar até 50s para ligar no plano gratuito.</p>
+      <p>Nossos servidores no Render podem levar cerca de 2 minutos para ligar no plano gratuito.</p>
       
       <button class="btn-launch" (click)="acordarApi()" [disabled]="acordandoApi">
         {{ acordandoApi ? ' Ligando os motores...' : 'Acordar Render' }}
