@@ -28,7 +28,7 @@ O sistema está hospedado em ambiente cloud (PaaS/DBaaS), simulando um cenário 
 - **Módulo B - Processor (Render):** `https://desafio-tecnico-anbima-2.onrender.com`
 
 > **Observação importante (Free Tier):** > Os serviços no Render podem entrar em estado de "sleep" por inatividade.  
-> Ao acessar o sistema, utilize o botão **"Ligar Sistema"** e aguarde cerca de **2 minutos** para a inicialização completa dos serviços.
+> Ao acessar o sistema, utilize o botão **"Acordar Render"** e aguarde cerca de **2 minutos** para a inicialização completa dos serviços.
 
 ---
 
