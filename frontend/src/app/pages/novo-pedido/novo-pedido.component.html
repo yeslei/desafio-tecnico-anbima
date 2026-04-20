@@ -1,0 +1,33 @@
+<div class="card">
+  <h2> Novo Pedido (String Posicional)</h2>
+  <p class="instrucoes">Insira a linha de 40 caracteres para ser processada pelo Módulo A:</p>
+
+  <div class="input-group">
+    <textarea 
+      [(ngModel)]="linhaPosicional" 
+      maxlength="40" 
+      rows="3"
+      placeholder="HAMBURGUER  CARNE      SALADA    01COCA    ">
+    </textarea>
+    
+    <div class="contador" [style.color]="linhaPosicional.length === 40 ? '#28a745' : '#dc3545'">
+      Caracteres: <strong>{{ linhaPosicional.length }} / 40</strong>
+    </div>
+  </div>
+
+  <button 
+    class="btn-enviar" 
+    (click)="enviar()" 
+    [disabled]="linhaPosicional.length !== 40 || enviando">
+    {{ enviando ? 'Processando...' : 'Enviar para Módulo A' }}
+  </button>
+
+  <div *ngIf="jsonResultado" class="resultado success">
+    <h3> Pedido Processado com Sucesso!</h3>
+    <pre>{{ jsonResultado | json }}</pre>
+  </div>
+
+  <div *ngIf="erro" class="resultado error">
+    <p>{{ erro }}</p>
+  </div>
+</div>
