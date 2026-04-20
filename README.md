@@ -51,7 +51,6 @@ Abaixo está o fluxo de dados do sistema, baseado em uma arquitetura orientada a
 - **CI/CD:** Github Actions, Render e Vercel.
 
 ---
----
 
 ## 5. Pipeline de CI/CD e Fluxo de Deploy
 
