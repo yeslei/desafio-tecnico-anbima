@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  moduloAUrl: 'https://anbima-modulo-a.onrender.com/pedidos',
-  moduloBUrl: 'https://anbima-modulo-b.onrender.com/pedidos'
+  moduloAUrl: 'https://desafio-tecnico-anbima-1.onrender.com/pedidos',
+  moduloBUrl: 'https://desafio-tecnico-anbima-2.onrender.com/pedidos'
 };

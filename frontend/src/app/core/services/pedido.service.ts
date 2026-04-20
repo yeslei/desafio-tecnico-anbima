@@ -2,9 +2,10 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, firstValueFrom } from 'rxjs';
 import { Pedido } from '../models/pedido';
-import { environment } from '../../../environments/environment'; 
-//prd
+//dsv
 //import { environment } from '../../../environments/environment'; 
+//prd
+import { environment } from '../../../environments/environment.prod'; 
 
 @Injectable({
   providedIn: 'root'
